@@ -1,0 +1,1 @@
+export const LOG_OPTIONS_METADATA_KEY = Symbol("LOG_CALL_OPTIONS");

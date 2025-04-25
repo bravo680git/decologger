@@ -1,0 +1,26 @@
+{
+  "name": "decologger",
+  "version": "1.0.0",
+  "description": "A lightweight, pluggable logger decorator for NestJS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.1",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "reflect-metadata": "^0.1.13"
+  }
+}
