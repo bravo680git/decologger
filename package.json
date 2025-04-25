@@ -4,6 +4,10 @@
   "description": "A lightweight, pluggable logger decorator for NestJS.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/bravo680git/decologger"
+  },
+  "homepage": "https://github.com/bravo680git/decologger",
   "scripts": {
     "build": "npx tsc",
     "test": "jest src"
