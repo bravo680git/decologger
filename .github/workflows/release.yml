@@ -31,8 +31,11 @@ jobs:
       - name: Bump version & generate changelog
         run: npx --yes standard-version --release-as patch
 
-      - name: Push changes & tags
-        run: git push --follow-tags origin main
+      - name: Push changes
+        run: |
+          git push --follow-tags https://github.com/${{ github.repository }}.git HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: pnpm build
