@@ -24,7 +24,7 @@ export function Logged(options?: LogOptions): MethodDecorator & ClassDecorator {
       wrapMethod(target, propertyKey as string, descriptor, mergedOptions);
     } else {
       Reflect.defineMetadata(LOG_OPTIONS_METADATA_KEY, options, target);
-      const prototype = target.prototype;
+      const prototype = target.prototype ?? {};
       const methodNames = Object.getOwnPropertyNames(prototype).filter(
         (key) => typeof prototype[key] === "function" && key !== "constructor"
       );
