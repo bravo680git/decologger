@@ -23,14 +23,16 @@ jobs:
       - name: Install deps
         run: pnpm i --frozen-lockfile
 
+      - name: Setup git user
+        run: |
+          git config user.name "cd"
+          git config user.email "cd@users.noreply.github.com"
+
       - name: Bump version & generate changelog
         run: npx --yes standard-version --release-as patch
 
       - name: Push changes & tags
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git push --follow-tags origin main
+        run: git push --follow-tags origin main
 
       - name: Build
         run: pnpm build
