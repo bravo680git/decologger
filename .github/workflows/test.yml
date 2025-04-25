@@ -21,7 +21,7 @@ jobs:
       - run: corepack enable
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm i --frozen-lockfile
 
       - name: Run tests
         run: pnpm run test
