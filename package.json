@@ -12,9 +12,15 @@
     "build": "npx tsc",
     "test": "jest src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nestjs",
+    "logger",
+    "decorator",
+    "log",
+    "trace"
+  ],
+  "author": "bravo680",
+  "license": "MIT",
   "dependencies": {
     "@nestjs/common": "^11.1.0",
     "@nestjs/core": "^11.1.0",
