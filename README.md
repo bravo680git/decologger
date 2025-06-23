@@ -27,7 +27,7 @@ pnpm i decologger
 - Basic Logging
 
 ```ts
-import { Logged } from "nestjs-log-decorator";
+import { Logged } from "decologger";
 
 @Injectable()
 class UserService {
@@ -64,7 +64,7 @@ return this.users.find(u => u.id === id);
 
 ```ts
 // main.ts
-import { GlobalLogger } from "nestjs-log-decorator";
+import { GlobalLogger } from "decologger";
 import { Logger } from "@nestjs/common";
 
 GlobalLogger.inject(new Logger("AppLogger")).config({
