@@ -1,6 +1,6 @@
 # decologger
 
-A lightweight, pluggable logger decorator for NestJS.
+A lightweight, pluggable logger decorator for NodeJS applications.
 
 ## 🔧 Installation
 

@@ -1,6 +1,6 @@
 import { Logged } from "./logger.decorator";
 import { GlobalLogger } from "./logger.global";
-import { Logger } from "@nestjs/common";
+import { Logger } from "./logger";
 
 describe("Logged decorator", () => {
   let mockLogger: Logger;

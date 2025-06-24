@@ -1,4 +1,4 @@
-import { Logger } from "@nestjs/common";
+import { Logger } from "./logger";
 import { GlobalLogger } from "./logger.global";
 import { LogOptions } from "./type";
 

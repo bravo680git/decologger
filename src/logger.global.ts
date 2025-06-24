@@ -1,5 +1,5 @@
-import { Logger } from "@nestjs/common";
-import { LogOptions } from "./type";
+import { Logger } from "./logger";
+import { LogOptions, ILogger } from "./type";
 
 /**
  * Utility class that provides a centralized logger
@@ -10,7 +10,7 @@ import { LogOptions } from "./type";
  * configuration of options such as logging format, error logging, and more.
  */
 export class GlobalLogger {
-  private static _logger: Logger;
+  private static _logger: ILogger;
   private static _options?: LogOptions;
 
   /**
@@ -20,7 +20,7 @@ export class GlobalLogger {
    * @param logger The custom logger instance to be used globally.
    * @returns GlobalLogger.
    */
-  static inject(logger: Logger) {
+  static inject(logger: ILogger) {
     GlobalLogger._logger = logger;
     return GlobalLogger;
   }
@@ -37,7 +37,7 @@ export class GlobalLogger {
 
   /**
    * Retrieves the current logger instance. If no logger has been injected,
-   * a default `Logger` instance from NestJS is used.
+   * a default `Logger` instance is used.
    *
    * @returns Logger.
    */

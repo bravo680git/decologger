@@ -1,4 +1,37 @@
-import { Logger } from "@nestjs/common";
+import { LOG_LEVEL } from "./constants";
+
+export type LogLevel = (typeof LOG_LEVEL)[keyof typeof LOG_LEVEL];
+export interface ILogger {
+  /**
+   * Write a 'log' level log.
+   */
+  log(message: any, ...optionalParams: any[]): any;
+  /**
+   * Write an 'error' level log.
+   */
+  error(message: any, ...optionalParams: any[]): any;
+  /**
+   * Write a 'warn' level log.
+   */
+  warn(message: any, ...optionalParams: any[]): any;
+  /**
+   * Write a 'debug' level log.
+   */
+  debug?(message: any, ...optionalParams: any[]): any;
+  /**
+   * Write a 'verbose' level log.
+   */
+  verbose?(message: any, ...optionalParams: any[]): any;
+  /**
+   * Write a 'fatal' level log.
+   */
+  fatal?(message: any, ...optionalParams: any[]): any;
+  /**
+   * Set log levels.
+   * @param levels log levels
+   */
+  setLogLevels?(levels: LogLevel[]): any;
+}
 
 /**
  * Represents the data passed into the formatter function when logging.
@@ -57,5 +90,5 @@ export type LogOptions = {
   /**
    * Custom logger instance to override the default global logger.
    */
-  logger?: Logger;
+  logger?: ILogger;
 };
