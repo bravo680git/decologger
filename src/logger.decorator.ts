@@ -93,26 +93,17 @@ function wrapMethod(
     } = { ...globalOptions, ...options };
 
     try {
+      const result = await original.apply(this, args);
+      const duration = performance.now() - start;
       logger.log(
         formatter?.({
           className,
           methodName,
           params: logParams ? args : undefined,
+          result: logResult ? result : undefined,
+          duration: logExecutionTime ? duration : undefined,
         })
       );
-      const result = await original.apply(this, args);
-      const duration = performance.now() - start;
-
-      if (logResult) {
-        logger.log(
-          formatter?.({
-            className,
-            methodName,
-            result,
-            duration: logExecutionTime ? duration : undefined,
-          })
-        );
-      }
 
       return result;
     } catch (error) {

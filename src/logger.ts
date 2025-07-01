@@ -1,3 +1,4 @@
+import { stringify } from "flatted";
 import { LOG_LEVEL } from "./constants";
 import { ILogger, LogLevel } from "./type";
 
@@ -57,11 +58,7 @@ export class Logger implements ILogger {
       return `${message.message}\n${message.stack || ""}`;
     }
     if (typeof message === "object" && message !== null) {
-      try {
-        return JSON.stringify(message);
-      } catch {
-        return String(message);
-      }
+      return stringify(message);
     }
     return String(message);
   }
