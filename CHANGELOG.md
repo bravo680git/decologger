@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.8 (2025-07-01)
+
+
+### Bug Fixes
+
+* fix bug block nestjs controller ([1731dda](https://github.com/bravo680git/decologger/commit/1731dda5ceda3c8b8c97b62db50e5c039ccfcde3))
+
 ### 1.0.7 (2025-06-24)
 
 ### 1.0.6 (2025-06-23)
