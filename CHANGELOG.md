@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.11 (2025-07-01)
+
+
+### Bug Fixes
+
+* fix logger moment ([70112af](https://github.com/bravo680git/decologger/commit/70112af62f7edb670ab4c30183605ad691aab1b6))
+
 ### 1.0.10 (2025-07-01)
 
 ### 1.0.9 (2025-07-01)
