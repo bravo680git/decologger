@@ -3,13 +3,20 @@
   "version": "1.0.10",
   "description": "A lightweight, pluggable logger decorator for NodeJS applications.",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "repository": {
     "url": "https://github.com/bravo680git/decologger"
   },
   "homepage": "https://github.com/bravo680git/decologger",
   "scripts": {
-    "build": "npx tsc",
+    "build": "rollup -c",
     "test": "jest src"
   },
   "keywords": [
@@ -23,12 +30,16 @@
   "license": "MIT",
   "dependencies": {
     "flatted": "^3.3.3",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.1",
     "jest": "^29.7.0",
+    "rollup": "^4.44.1",
+    "rollup-plugin-typescript2": "^0.36.0",
     "ts-jest": "^29.3.2",
     "typescript": "^5.8.3"
   },
