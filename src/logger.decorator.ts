@@ -42,6 +42,7 @@ export function Logged(options?: LogOptions): MethodDecorator & ClassDecorator {
         );
         if (!existingWrapped) {
           wrapMethod(prototype, methodName, descriptor, options);
+          copyMetadata(descriptor.value, prototype[methodName]);
           Reflect.defineMetadata(
             LOG_OPTIONS_METADATA_KEY,
             options,
@@ -52,6 +53,14 @@ export function Logged(options?: LogOptions): MethodDecorator & ClassDecorator {
       }
     }
   };
+}
+
+function copyMetadata(original: Function, wrapped: Function) {
+  const keys = Reflect.getMetadataKeys(original);
+  for (const key of keys) {
+    const value = Reflect.getMetadata(key, original);
+    Reflect.defineMetadata(key, value, wrapped);
+  }
 }
 
 /**
@@ -70,7 +79,7 @@ function wrapMethod(
 ) {
   const original = descriptor.value;
 
-  descriptor.value = async function (...args: any[]) {
+  const wrapped = async function (this: any, ...args: any[]) {
     const className = target.constructor.name;
     const start = performance.now();
     const logger = options?.logger ?? GlobalLogger.get();
@@ -122,4 +131,8 @@ function wrapMethod(
       throw error;
     }
   };
+
+  copyMetadata(original, wrapped);
+
+  descriptor.value = wrapped;
 }
