@@ -22,6 +22,7 @@
   "author": "bravo680",
   "license": "MIT",
   "dependencies": {
+    "flatted": "^3.3.3",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {

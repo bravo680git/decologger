@@ -1,3 +1,4 @@
+import { stringify } from "flatted";
 import { LogParams } from "./type";
 
 export function defaultFormatter({
@@ -14,11 +15,13 @@ export function defaultFormatter({
   }
 
   if (params.length) {
-    logMessage += `\n\tparams: ${JSON.stringify(params)}`;
+    logMessage += `\n\tparams: ${stringify(params)}`;
   }
 
   if (result !== undefined) {
-    logMessage += `\n\tresult: ${JSON.stringify(result)}`;
+    logMessage += `\n\tresult: ${stringify(result)}`;
   }
   return logMessage;
 }
+
+export { stringify };
